@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:lab23/SignUpScreen.dart';
+
+import 'HomeScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key key, this.title}) : super(key: key);
@@ -10,12 +13,9 @@ class LoginScreen extends StatefulWidget {
   _LoginScreenStat createState() => _LoginScreenStat();
 }
 
-
 class _LoginScreenStat extends State<LoginScreen> {
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -41,27 +41,35 @@ class _LoginScreenStat extends State<LoginScreen> {
       fontSize: 35,
     );
 
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(height: 50),
-        Row(children: [
-          Text('Log in ', style: _textStyle2 ,),
-          Padding(padding: EdgeInsets.fromLTRB(180, 0, 0, 0),
-            child:Text('sign Up' ,style: TextStyle(
-              color: Colors.grey,
-              fontWeight: FontWeight.w700,
-              fontSize: 24,
-            ),),
-          ),
-        ],
+        Row(
+          children: [
+            Text(
+              'Log in ',
+              style: _textStyle2,
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(180, 0, 0, 0),
+              child: Text(
+                'sign Up',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+          ],
         ),
         SizedBox(height: 25),
-        Image.asset("assets/images/google-glass.png",
+        Image.asset(
+          "assets/images/google-glass.png",
           height: 100,
-          width: 100,),
-
+          width: 100,
+        ),
         Text(
           "Go Kart",
           style: TextStyle(
@@ -71,20 +79,14 @@ class _LoginScreenStat extends State<LoginScreen> {
           ),
         ),
         SizedBox(height: 50),
-
         TextField(
-          decoration: InputDecoration(
-              hintText: 'UserName or Email'
-          ),
+          decoration: InputDecoration(hintText: 'Email'),
         ),
         SizedBox(height: 20),
         TextField(
           obscureText: true,
-          decoration: InputDecoration(
-              hintText: 'Password'
-          ),
+          decoration: InputDecoration(hintText: 'Password'),
         ),
-
         SizedBox(height: 20),
         Align(
           alignment: Alignment.centerRight,
@@ -97,7 +99,12 @@ class _LoginScreenStat extends State<LoginScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpScreen()),
+              );
+            },
             child: Container(
               alignment: Alignment.center,
               height: 50,
@@ -108,10 +115,13 @@ class _LoginScreenStat extends State<LoginScreen> {
                     Icons.assignment_turned_in_outlined,
                     color: Colors.blue,
                   ),
-                  Text(
-                    "ٍLOG IN",
-                    style: TextStyle(
-                      color: Colors.blue,
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    child: Text(
+                      "ٍLOG IN",
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
                     ),
                   ),
                 ],
@@ -127,30 +137,27 @@ class _LoginScreenStat extends State<LoginScreen> {
             ),
           ),
         ),
-
-
-
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: RichText(
             text: TextSpan(
               text: 'Don\'t have an Account ',
-              style: TextStyle(color: Colors.grey , fontSize: 18),
+              style: TextStyle(color: Colors.grey, fontSize: 18),
               children: <TextSpan>[
-                TextSpan(text:'Regester', style: TextStyle(fontWeight: FontWeight.bold ,
-                    color: Colors.black)),
+                TextSpan(
+                    text: 'Regester',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, color: Colors.black)),
               ],
             ),
           ),
         ),
-
         Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text('Continue With' , style: TextStyle(color: Colors.grey
-                , fontSize: 20
-            ),)
-        ),
-
+            child: Text(
+              'Continue With',
+              style: TextStyle(color: Colors.grey, fontSize: 20),
+            )),
         Padding(
           padding: const EdgeInsets.all(32.0),
           child: Row(
@@ -205,9 +212,7 @@ class _LoginScreenStat extends State<LoginScreen> {
             ],
           ),
         ),
-
       ],
     );
-
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:lab23/HomeScreen.dart';
 
 class SignUpScreen extends StatefulWidget {
   SignUpScreen({Key key, this.title}) : super(key: key);
@@ -98,7 +99,10 @@ class _SignUpScreenStat extends State<SignUpScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context)=> HomeScreen() ),);
+            },
             child: Container(
               alignment: Alignment.center,
               height: 50,
@@ -109,10 +113,13 @@ class _SignUpScreenStat extends State<SignUpScreen> {
                     Icons.assignment_turned_in_outlined,
                     color: Colors.blue,
                   ),
-                  Text(
-                    "ٍSign Up",
-                    style: TextStyle(
-                      color: Colors.blue,
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    child: Text(
+                      "ٍSign Up",
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
                     ),
                   ),
                 ],
